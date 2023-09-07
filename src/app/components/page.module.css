@@ -227,3 +227,29 @@
     transform: rotate(0deg);
   }
 }
+
+.heropreviewtext {
+  background: linear-gradient(to right, #32a394, #e0a9bb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name:  previewGradient;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes previewGradient {
+
+  10% {
+    background: linear-gradient(to right, #32a394, #e0a9bb);
+    
+  }
+
+  50% {
+
+    background: linear-gradient(to right, red, yellow);
+    
+
+  }
+
+}

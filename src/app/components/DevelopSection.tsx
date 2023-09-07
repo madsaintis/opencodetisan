@@ -14,7 +14,7 @@ interface FeatureProps {
 const Feature = ({ icon, heading, text }: FeatureProps) => {
   return (
     <VStack align={{ base: "center", lg: "start" }}>
-      <Flex w={12} h={12} align={"center"} justify={"center"} rounded={"lg"} bg={useColorModeValue("#333333", "yellow.900")}>
+      <Flex w={12} h={12} align={"center"} justify={"center"} rounded={"lg"} bg={useColorModeValue("#333333", "red.900")}>
         {icon}
       </Flex>
       <Heading size="xl" textAlign={{ base: "center", lg: "start" }}>
