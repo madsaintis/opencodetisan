@@ -1,9 +1,9 @@
 "use client";
 
-import { Container, SimpleGrid, Image, Flex, Heading, Text, VStack, Stack, StackDivider, Icon, useColorModeValue } from "@chakra-ui/react";
-import { IoBuildOutline, IoGitBranchOutline, IoLogoBitcoin, IoSearchSharp, IoTerminalOutline } from "react-icons/io5";
-import { PiNumberOneBold } from "react-icons/pi";
+import { Container, Flex, Heading, Icon, Image, SimpleGrid, Stack, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 import { ReactElement } from "react";
+import { IoBuildOutline, IoGitBranchOutline, IoTerminalOutline } from "react-icons/io5";
+import { PiNumberOneBold } from "react-icons/pi";
 
 interface FeatureProps {
   icon?: ReactElement;
@@ -14,13 +14,13 @@ interface FeatureProps {
 const Feature = ({ icon, heading, text }: FeatureProps) => {
   return (
     <VStack align={{ base: "center", lg: "start" }}>
-      <Flex w={12} h={12} align={"center"} justify={"center"} rounded={"lg"} bg={useColorModeValue("#333333", "red.900")}>
+      <Flex w={12} h={12} align={"center"} justify={"center"} rounded={"lg"} bg={useColorModeValue("#fafafa", "#333333")} border={useColorModeValue("solid #eaeaea","")}>
         {icon}
       </Flex>
       <Heading size="xl" textAlign={{ base: "center", lg: "start" }}>
         {heading}
       </Heading>
-      <Text color={"#a1a1a1"} fontSize={"lg"} textAlign={{ base: "center", lg: "start" }}>
+      <Text color={useColorModeValue("#666666","#a1a1a1")} fontSize={"lg"} textAlign={{ base: "center", lg: "start" }}>
         {text}
       </Text>
     </VStack>
@@ -41,7 +41,7 @@ export default function DevelopSection() {
 
         <Heading size="3xl">Build when inspiration strikes</Heading>
 
-        <Text color={"#a1a1a1"} fontSize={"xl"}>
+        <Text color={useColorModeValue("#666666","#a1a1a1")} fontSize={"xl"}>
           Free developers from time-consuming, unnecessary processes that slow your work, so you and your team can focus on creating.
         </Text>
       </Stack>
@@ -52,9 +52,7 @@ export default function DevelopSection() {
         </Flex>
         <Stack spacing={10} marginBottom={{ base: "50px" }} align={"left"}>
           <Feature icon={<Icon as={IoBuildOutline} color={"#888888"} w={9} h={9} />} heading={"The complete toolkit for the Web"} text={"Everything you need to build your site exactly how you imagine, from automatic API handling to built-in image and performance optimizations."} />
-
           <Feature icon={<Icon as={IoGitBranchOutline} color={"#888888"} w={9} h={9} />} heading={"Easy integration with your backend"} text={"Connect your pages to any data source, headless CMS, or API and make it work in everyone’s dev environment."} />
-
           <Feature icon={<Icon as={IoTerminalOutline} color={"#888888"} w={9} h={9} />} heading={"End-to-end testing on Localhost"} text={"From caching to Serverless Functions, all our cloud primitives work perfectly on localhost."} />
         </Stack>
       </SimpleGrid>

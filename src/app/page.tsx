@@ -1,21 +1,16 @@
-"use client"
-import { Button, useColorMode } from "@chakra-ui/react"
-import BrandSection from "./components/BrandSection"
-import DevelopSection from "./components/DevelopSection"
-import HeroSection from "./components/HeroSection"
+"use client";
+import BrandSection from "./components/landing-page/BrandSection";
+import DevelopSection from "./components/landing-page/DevelopSection";
+import HeroSection from "./components/landing-page/HeroSection";
+import Navbar from "./components/landing-page/Navbar";
 
 export default function LandingPage() {
-  const { colorMode, toggleColorMode } = useColorMode();
-
   return (
     <>
-    <HeroSection />
-    <BrandSection />
-    <DevelopSection />
-
-    <Button onClick={toggleColorMode}>
-        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-      </Button>
+      <Navbar />
+      <HeroSection />
+      <BrandSection />
+      <DevelopSection />
     </>
-  )
+  );
 }

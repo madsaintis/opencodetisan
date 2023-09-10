@@ -1,15 +1,15 @@
-'use client' // ---> this line does the trick
+"use client"; 
 
-import { ChakraProvider } from '@chakra-ui/react'
-import { ReactNode } from 'react'
-import theme from './theme'
+import { ChakraProvider } from "@chakra-ui/react";
+import { ReactNode } from "react";
+import theme from "./theme";
 
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
-      <ChakraProvider resetCSS theme={theme}>
-        {children}
-      </ChakraProvider>
-  )
-}
+    <ChakraProvider resetCSS theme={theme}>
+      {children}
+    </ChakraProvider>
+  );
+};
 
-export default Providers
+export default Providers;

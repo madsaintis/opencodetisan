@@ -4,10 +4,8 @@ import {
   IconButton,
   Avatar,
   Box,
-  CloseButton,
   Flex,
   HStack,
-  VStack,
   Icon,
   useColorModeValue,
   Text,
@@ -16,15 +14,17 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
+  Center,
+  SimpleGrid,
+  Stat,
+  StatLabel,
+  StatNumber,
+  StatHelpText,
 } from "@chakra-ui/react";
-import { FiHome, FiMenu, FiInbox, FiUser, FiTwitter, FiGithub } from "react-icons/fi";
+import { FiHome, FiMenu, FiInbox, FiUser } from "react-icons/fi";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 import { IconType } from "react-icons";
+import Graph from "../components/internal-page/CustomerGraph";
 
 interface LinkItemProps {
   name: string;
@@ -42,6 +42,12 @@ interface MobileProps extends FlexProps {
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
+}
+
+interface StatsCardProps {
+  title: string;
+  stat: string;
+  growth: string;
 }
 
 const LinkItems: Array<LinkItemProps> = [
@@ -63,7 +69,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8">
-      <Avatar name='Christian Nwamba' src='https://bit.ly/code-beast' />
+        <Avatar name="Christian Nwamba" src="https://bit.ly/code-beast" />
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold" mx="6">
           User
         </Text>
@@ -109,6 +115,39 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
   );
 };
 
+function StatsCard(props: StatsCardProps) {
+  const { title, stat, growth } = props;
+  return (
+    <Box>
+      <Stat
+        display="flex"
+        flexDirection="row"
+        flexWrap={"wrap"}
+        alignItems="center"
+        px={{ base: 4, md: 8 }}
+        py={"5"}
+        height={"200px"}
+        shadow={"xl"}
+        border={"1px solid"}
+        borderColor={useColorModeValue("gray.800", "gray.500")}
+        rounded={"lg"}
+      >
+        <div>
+          <StatLabel fontWeight={"medium"} isTruncated>
+            {title}
+          </StatLabel>
+          <StatNumber fontSize={"2xl"} fontWeight={"medium"}>
+            {stat}
+          </StatNumber>
+          <StatHelpText fontSize={"2xl"} fontWeight={"medium"}>
+            {growth}
+          </StatHelpText>
+        </div>
+      </Stat>
+    </Box>
+  );
+}
+
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
     <Flex
@@ -144,7 +183,7 @@ const SidebarWithHeader = () => {
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent onClose={() => onClose} display={{ base: "none", md: "block" }} />
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} returnFocusOnClose={false} onOverlayClick={onClose} >
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} returnFocusOnClose={false} onOverlayClick={onClose}>
         <DrawerContent maxW={60}>
           <SidebarContent onClose={onClose} />
         </DrawerContent>
@@ -152,7 +191,23 @@ const SidebarWithHeader = () => {
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* Content */}
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={{ base: 5, lg: 8 }}>
+          <StatsCard title={"Revenue"} stat={"€43.400"} growth={"23%"}/>
+          <StatsCard title={"New customers"} stat={"130"} growth={"29%"}/>
+          <StatsCard title={"Churned customers"} stat={"5"} growth={"2%"} />
+          <StatsCard title={"Active users"} stat={"1337"} growth={"103%"}/>
+        </SimpleGrid>
+        <Box boxSize={"l"} border={"solid 2px"} mt={"10"} bg="white" padding={"5"} rounded={"lg"} shadow={"xl"}>
+          <Center marginBottom={10}>
+            <Text color={"black"} fontSize={"xl"} fontWeight={900}>
+              Sample Graph
+            </Text>
+          </Center>
+
+          <Center>
+            <Graph />
+          </Center>
+        </Box>
       </Box>
     </Box>
   );

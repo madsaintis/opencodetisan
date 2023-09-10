@@ -1,20 +1,15 @@
-'use client' // ---> this line does the trick
+"use client";
 
-import { ColorModeScript } from '@chakra-ui/react'
-import Navbar from './components/Navbar'
-import Providers from './providers'
-import theme from './theme'
+import Providers from "./providers";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html>
       <body>
-		<Providers>
-      {children}
-      </Providers>
-	 </body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
