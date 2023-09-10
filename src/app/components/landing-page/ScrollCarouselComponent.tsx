@@ -15,7 +15,7 @@ const ScrollCarouselComponent = () => {
       <Box maxW={"sm"} mx={"10px"}>
         <ScrollCarousel autoplay autoplaySpeed={2} speed={3} onReady={() => console.log("I am ready")}>
           {brands.map((src, index) => (
-            <Box justifyContent={"center"} mx={"2"}>
+            <Box key={index} justifyContent={"center"} mx={"2"}>
               <Image boxSize="150px" objectFit="cover" src={`${src}`} style={imageStyles} />
             </Box>
           ))}

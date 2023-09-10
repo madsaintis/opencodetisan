@@ -18,7 +18,7 @@ export default function BrandSection() {
       <Stack direction="row" maxW={"8xl"} display={{ base: "none", md: "flex" }}>
         <Wrap justify={"center"} direction={"row"} spacing={"20px"}>
           {brands.map((src, index) => (
-            <WrapItem>
+            <WrapItem key={index}>
               <Image boxSize="150px" objectFit="cover" src={`${src}`} alt="Dan Abramov" style={imageStyles} />
             </WrapItem>
           ))}

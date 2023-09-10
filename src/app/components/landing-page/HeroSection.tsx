@@ -54,7 +54,7 @@ export default function HeroSection() {
        
 
         <Text color={useColorModeValue("#666666","#a1a1a1")} maxW={"6xl"} fontSize={{ base: "2xl", xl: "4xl"}}>
-          Vercel's frontend cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web.
+          Vercel&apos;s frontend cloud gives developers the frameworks, workflows, and infrastructure to build a faster, more personalized Web.
         </Text>
         <Stack spacing={6} direction={{ base: "column", sm: "row" }} direction-xs={"column"}>
           <Button leftIcon={<TriangleUpIcon />} rounded={"lg"} px={6} colorScheme={useColorModeValue('white','black')} bg={useColorModeValue('black','white')} _hover={{ bg: "#a1a1a1" }}>

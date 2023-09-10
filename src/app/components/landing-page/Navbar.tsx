@@ -151,7 +151,7 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "white");
-
+  const popoverContentColor = useColorModeValue("white", "black");
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
@@ -179,7 +179,7 @@ const DesktopNav = () => {
                 border={1}
                 boxShadow={"xl"}
                 bg={popoverContentBgColor}
-                color={useColorModeValue("white", "black")}
+                color={popoverContentColor}
                 p={4}
                 rounded={"xl"}
                 minW={"sm"}
